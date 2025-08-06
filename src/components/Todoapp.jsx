@@ -1,23 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import "./Todoapp.css";
 
-// Todo item with delete and edit options
-function TodoListItem({ value, onDelete, onEdit }) {
-  return (
-    <li>
-      {value}{" "}
-      <div className="actions">
-        <button className="edit-btn" onClick={() => onEdit(value)}>
-          Edit
-        </button>
-        <button className="delete-btn" onClick={() => onDelete(value)}>
-          Delete
-        </button>
-      </div>
-    </li>
-  );
-}
+
 
 export default function Todoapp() {
   const [todolist, setTodoList] = useState([]);
@@ -74,11 +59,7 @@ export default function Todoapp() {
   };
 
   const editTodo = (valueToEdit) => {
-    // if (todolist.includes(valueToEdit)) {
-    //   alert("Todo Name already exists.");
-    //   return;
-    // }
-
+ 
     const index = todolist.indexOf(valueToEdit);
     setCurrentValue(valueToEdit);
     setEditIndex(index);
@@ -108,16 +89,7 @@ export default function Todoapp() {
           <button>{editMode ? "Update" : "Add"}</button>
         </form>
 
-        {/* <form onSubmit={saveTodoList}>
-          <input
-            name="toname"
-            type="text"
-            value={currentValue}
-            onChange={handleInputChange}
-          />
-          <button>{editMode ? "Update" : "Add"}</button>
-        </form>
- */}
+      
         <div className="outerDiv">
           <ul>
             {todolist.map((todo, index) => (
